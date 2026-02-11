@@ -1,1 +1,17 @@
+Social Media Manager Project Document
+This document summarizes the ninadpawar24/social-media-manager GitHub repository, including its purpose, features, tech stack, and setup guide—ideal for your web dev portfolio or Instagram content tools.
 
+Project Summary
+The repo is a full-stack web app for streamlining social media tasks like cross-platform reposting and scheduling. It automates formatting posts for sites like Twitter, Facebook, Instagram, and LinkedIn using AI, targeting businesses, influencers, or devs handling multiple accounts.
+
+Core Features
+Automated Reposting: One-click share across platforms with auto-adjustments.
+Smart Scheduling: Time posts for global time zones.
+API Integration: Handles Twitter, Facebook, Instagram, LinkedIn quirks.
+Scalable Design: Microservices for easy expansion.
+
+Component	& Technologies
+Backend-Node.js (microservices)
+Frontend-Vue.js
+Infrastructure-Nginx, RabbitMQ, Docker
+Deployment-Docker Compose
