@@ -24,15 +24,15 @@ Platform filtering
 Drag-and-drop scheduling
 
 ## Project Files
-- `index.html` - Landing page
-- `dashboard.html` - Main dashboard
-- `calendar.html` - Content calendar
-- `styles.css` - Main styles
-- `dashboard.css` - Dashboard styles
-- `calendar.css` - Calendar styles
-- `main.js` - Landing page scripts
-- `dashboard.js` - Dashboard functionality
-- `calendar.js` - Calendar functionality
+ `index.html` - Landing page
+ `dashboard.html` - Main dashboard
+ `calendar.html` - Content calendar
+ `styles.css` - Main styles
+ `dashboard.css` - Dashboard styles
+ `calendar.css` - Calendar styles
+ `main.js` - Landing page scripts
+ `dashboard.js` - Dashboard functionality
+ `calendar.js` - Calendar functionality
 
 ## How to Use
 1. Open `index.html` in a web browser
@@ -40,6 +40,6 @@ Drag-and-drop scheduling
 3. Navigate using the sidebar menu
    
 ## Technology
-- HTML5, CSS3, Vanilla JavaScript
-- No frameworks or build tools required
-- Responsive design
+ HTML5, CSS3, Vanilla JavaScript
+ No frameworks or build tools required
+ Responsive design
