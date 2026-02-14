@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SocialSync</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Lexend+Deca:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <svg width="35" height="35" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="url(#gradSidebar)" stroke-width="3"/>
+                <path d="M15 20L18 23L25 16" stroke="url(#gradSidebar)" stroke-width="3" stroke-linecap="round"/>
+                <defs>
+                    <linearGradient id="gradSidebar" x1="0" y1="0" x2="40" y2="40">
+                        <stop offset="0%" stop-color="#00D4FF"/>
+                        <stop offset="100%" stop-color="#7B2FFF"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span>SocialSync</span>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="overview">
+                <span class="icon">📊</span>
+                <span>Overview</span>
+            </a>
+            <a href="#" class="nav-item" data-page="schedule">
+                <span class="icon">📅</span>
+                <span>Schedule Posts</span>
+            </a>
+            <a href="#" class="nav-item" data-page="analytics">
+                <span class="icon">📈</span>
+                <span>Analytics</span>
+            </a>
+            <a href="#" class="nav-item" data-page="content">
+                <span class="icon">✨</span>
+                <span>AI Content</span>
+            </a>
+            <a href="#" class="nav-item" data-page="trends">
+                <span class="icon">🔥</span>
+                <span>Trends</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+                <span class="icon">📆</span>
+                <span>Calendar</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <div class="user-info">
+                    <div class="user-name">John Doe</div>
+                    <div class="user-email">john@example.com</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 id="page-title">Overview</h1>
+                <p id="page-subtitle">Monitor all your social media accounts</p>
+            </div>
+            <div class="header-right">
+                <button class="btn-icon notification-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <button class="btn-primary-dash" id="createPostBtn">
+                    ➕ Create Post
+                </button>
+            </div>
+        </header>
+
+        <div id="overview-page" class="page-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon instagram-gradient">📷</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Instagram</div>
+                        <div class="stat-value">45.2K</div>
+                        <div class="stat-change positive">+12.5%</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon facebook-gradient">👤</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Facebook</div>
+                        <div class="stat-value">32.8K</div>
+                        <div class="stat-change positive">+8.3%</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon twitter-gradient">🐦</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Twitter</div>
+                        <div class="stat-value">28.5K</div>
+                        <div class="stat-change negative">-2.1%</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon linkedin-gradient">💼</div>
+                    <div class="stat-info">
+                        <div class="stat-label">LinkedIn</div>
+                        <div class="stat-value">15.3K</div>
+                        <div class="stat-change positive">+15.7%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dash-card engagement-card">
+                    <div class="card-header">
+                        <h3>Engagement Overview</h3>
+                        <select class="time-filter">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="engagementChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="dash-card">
+                    <div class="card-header">
+                        <h3>Scheduled Posts</h3>
+                        <a href="calendar.html" class="view-all">View All</a>
+                    </div>
+                    <div class="scheduled-list">
+                        <div class="scheduled-item">
+                            <div class="platform-badge instagram">IG</div>
+                            <div class="scheduled-content">
+                                <div class="scheduled-title">New product launch announcement</div>
+                                <div class="scheduled-time">Today at 3:00 PM</div>
+                            </div>
+                            <button class="btn-icon-small">✏️</button>
+                        </div>
+                        <div class="scheduled-item">
+                            <div class="platform-badge facebook">FB</div>
+                            <div class="scheduled-content">
+                                <div class="scheduled-title">Weekly tips & tricks</div>
+                                <div class="scheduled-time">Tomorrow at 10:00 AM</div>
+                            </div>
+                            <button class="btn-icon-small">✏️</button>
+                        </div>
+                        <div class="scheduled-item">
+                            <div class="platform-badge twitter">TW</div>
+                            <div class="scheduled-content">
+                                <div class="scheduled-title">Industry insights thread</div>
+                                <div class="scheduled-time">Feb 16 at 2:00 PM</div>
+                            </div>
+                            <button class="btn-icon-small">✏️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="card-header">
+                    <h3>Recent Performance</h3>
+                </div>
+                <div class="performance-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Post</th>
+                                <th>Platform</th>
+                                <th>Reach</th>
+                                <th>Engagement</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="performanceTableBody">
+                            <tr>
+                                <td>Spring Collection Teaser</td>
+                                <td><span class="platform-badge instagram">IG</span></td>
+                                <td>12,450</td>
+                                <td>1,823</td>
+                                <td>Feb 13, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Customer Success Story</td>
+                                <td><span class="platform-badge linkedin">LI</span></td>
+                                <td>8,920</td>
+                                <td>456</td>
+                                <td>Feb 12, 2024</td>
+                            </tr>
+                            <tr>
+                                <td>Industry News Commentary</td>
+                                <td><span class="platform-badge twitter">TW</span></td>
+                                <td>15,230</td>
+                                <td>2,104</td>
+                                <td>Feb 11, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="schedule-page" class="page-content" style="display: none;">
+            <div class="compose-card">
+                <h2>Create New Post</h2>
+                <div class="platform-selector">
+                    <label class="platform-checkbox">
+                        <input type="checkbox" value="instagram" checked>
+                        <span class="checkbox-custom instagram">
+                            <svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                            Instagram
+                        </span>
+                    </label>
+                    <label class="platform-checkbox">
+                        <input type="checkbox" value="facebook">
+                        <span class="checkbox-custom facebook">
+                            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M11 7V5c0-.5.3-1 1-1h1V1h-1.5c-1.9 0-2.5 1-2.5 2v4H7v3h2v9h3v-9h2.5l.5-3h-3z" fill="currentColor"/></svg>
+                            Facebook
+                        </span>
+                    </label>
+                    <label class="platform-checkbox">
+                        <input type="checkbox" value="twitter">
+                        <span class="checkbox-custom twitter">
+                            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M18 4.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.8 0-3.3 1.5-3.3 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H2c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z" fill="currentColor"/></svg>
+                            Twitter
+                        </span>
+                    </label>
+                    <label class="platform-checkbox">
+                        <input type="checkbox" value="linkedin">
+                        <span class="checkbox-custom linkedin">
+                            <svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="8" width="3" height="9" fill="currentColor"/><circle cx="4.5" cy="5" r="1.5" fill="currentColor"/><path d="M9 8v9h3v-4.5c0-1.5.5-2.5 2-2.5s1.5 1 1.5 2.5V17h3v-5c0-3-1.5-4-3.5-4-1.5 0-2.5.8-3 1.5V8H9z" fill="currentColor"/></svg>
+                            LinkedIn
+                        </span>
+                    </label>
+                </div>
+
+                <div class="compose-form">
+                    <textarea id="postContent" placeholder="What's on your mind?" rows="6"></textarea>
+                    
+                    <div class="compose-actions">
+                        <div class="media-upload">
+                            <button class="btn-icon">📷 Add Media</button>
+                            <button class="btn-icon" id="aiGenerateBtn">✨ AI Generate</button>
+                            <button class="btn-icon" id="hashtagBtn">🏷️ Hashtags</button>
+                        </div>
+                        <div class="schedule-options">
+                            <label>
+                                <input type="radio" name="postTime" value="now" checked> Post Now
+                            </label>
+                            <label>
+                                <input type="radio" name="postTime" value="schedule"> Schedule
+                            </label>
+                            <input type="datetime-local" id="scheduleTime" disabled>
+                        </div>
+                    </div>
+
+                    <div class="ai-suggestions" id="aiSuggestions" style="display: none;">
+                        <h4>AI-Generated Suggestions</h4>
+                        <div class="suggestion-item">
+                            <p>"🚀 Excited to share our latest innovation! This breakthrough will change how you work. #Innovation #TechTrends"</p>
+                            <button class="btn-use">Use This</button>
+                        </div>
+                        <div class="suggestion-item">
+                            <p>"✨ Transform your workflow with cutting-edge solutions. Join thousands who've already made the switch! #Productivity"</p>
+                            <button class="btn-use">Use This</button>
+                        </div>
+                    </div>
+
+                    <div class="hashtag-suggestions" id="hashtagSuggestions" style="display: none;">
+                        <h4>Trending Hashtags</h4>
+                        <div class="hashtag-list">
+                            <span class="hashtag-tag">#TechTrends</span>
+                            <span class="hashtag-tag">#Innovation</span>
+                            <span class="hashtag-tag">#DigitalMarketing</span>
+                            <span class="hashtag-tag">#SocialMedia</span>
+                            <span class="hashtag-tag">#Productivity</span>
+                            <span class="hashtag-tag">#GrowthHacking</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-publish">Publish Post</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="analytics-page" class="page-content" style="display: none;">
+            <div class="analytics-filters">
+                <select class="filter-select">
+                    <option>All Platforms</option>
+                    <option>Instagram</option>
+                    <option>Facebook</option>
+                    <option>Twitter</option>
+                    <option>LinkedIn</option>
+                </select>
+                <select class="filter-select">
+                    <option>Last 30 Days</option>
+                    <option>Last 7 Days</option>
+                    <option>Last 90 Days</option>
+                    <option>This Year</option>
+                </select>
+            </div>
+
+            <div class="analytics-metrics">
+                <div class="metric-card">
+                    <h4>Total Reach</h4>
+                    <div class="metric-value">156.4K</div>
+                    <div class="metric-trend positive">↗ 24.5%</div>
+                </div>
+                <div class="metric-card">
+                    <h4>Engagement Rate</h4>
+                    <div class="metric-value">4.2%</div>
+                    <div class="metric-trend positive">↗ 1.8%</div>
+                </div>
+                <div class="metric-card">
+                    <h4>New Followers</h4>
+                    <div class="metric-value">2,847</div>
+                    <div class="metric-trend positive">↗ 12.3%</div>
+                </div>
+                <div class="metric-card">
+                    <h4>Post Performance</h4>
+                    <div class="metric-value">87/100</div>
+                    <div class="metric-trend positive">↗ 5 pts</div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <div class="card-header">
+                    <h3>Platform Comparison</h3>
+                </div>
+                <div class="platform-stats">
+                    <div class="platform-stat">
+                        <div class="platform-header">
+                            <span class="platform-badge instagram">IG</span>
+                            <span>Instagram</span>
+                        </div>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span>Reach</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill instagram" style="width: 85%"></div>
+                                </div>
+                                <span>45.2K</span>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span>Engagement</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill instagram" style="width: 72%"></div>
+                                </div>
+                                <span>3,245</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="platform-stat">
+                        <div class="platform-header">
+                            <span class="platform-badge facebook">FB</span>
+                            <span>Facebook</span>
+                        </div>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span>Reach</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill facebook" style="width: 65%"></div>
+                                </div>
+                                <span>32.8K</span>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span>Engagement</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill facebook" style="width: 55%"></div>
+                                </div>
+                                <span>1,804</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="platform-stat">
+                        <div class="platform-header">
+                            <span class="platform-badge twitter">TW</span>
+                            <span>Twitter</span>
+                        </div>
+                        <div class="stat-bars">
+                            <div class="stat-bar-item">
+                                <span>Reach</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill twitter" style="width: 78%"></div>
+                                </div>
+                                <span>28.5K</span>
+                            </div>
+                            <div class="stat-bar-item">
+                                <span>Engagement</span>
+                                <div class="stat-bar">
+                                    <div class="stat-bar-fill twitter" style="width: 68%"></div>
+                                </div>
+                                <span>1,940</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-page" class="page-content" style="display: none;">
+            <div class="ai-content-generator">
+                <h2>AI Content Generator</h2>
+                <div class="generator-form">
+                    <div class="form-group">
+                        <label>Content Topic</label>
+                        <input type="text" id="contentTopic" placeholder="e.g., Product launch, Industry news, Tips & tricks">
+                    </div>
+                    <div class="form-group">
+                        <label>Tone</label>
+                        <select id="contentTone">
+                            <option>Professional</option>
+                            <option>Casual</option>
+                            <option>Enthusiastic</option>
+                            <option>Informative</option>
+                            <option>Humorous</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Platform</label>
+                        <select id="targetPlatform">
+                            <option>All Platforms</option>
+                            <option>Instagram</option>
+                            <option>Facebook</option>
+                            <option>Twitter</option>
+                            <option>LinkedIn</option>
+                        </select>
+                    </div>
+                    <button class="btn-generate" id="generateContent">✨ Generate Content</button>
+                </div>
+
+                <div class="generated-content" id="generatedContent" style="display: none;">
+                    <h3>Generated Content</h3>
+                    <div class="content-variants">
+                        <div class="variant-card">
+                            <div class="variant-label">Variant 1</div>
+                            <p class="variant-text">🚀 Excited to unveil our latest innovation! After months of development, we're bringing you a game-changing solution that will revolutionize your workflow. Stay tuned for the big reveal! #Innovation #ProductLaunch</p>
+                            <div class="variant-actions">
+                                <button class="btn-copy">Copy</button>
+                                <button class="btn-use">Use in Post</button>
+                            </div>
+                        </div>
+                        <div class="variant-card">
+                            <div class="variant-label">Variant 2</div>
+                            <p class="variant-text">✨ Something special is coming your way! We've been working behind the scenes to create an experience that will transform how you work. The wait is almost over... #ComingSoon #Innovation</p>
+                            <div class="variant-actions">
+                                <button class="btn-copy">Copy</button>
+                                <button class="btn-use">Use in Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="trends-page" class="page-content" style="display: none;">
+            <div class="trends-header">
+                <h2>Trending Now</h2>
+                <div class="trend-filters">
+                    <button class="trend-filter active">All</button>
+                    <button class="trend-filter">Technology</button>
+                    <button class="trend-filter">Business</button>
+                    <button class="trend-filter">Lifestyle</button>
+                </div>
+            </div>
+
+            <div class="trends-grid">
+                <div class="trend-card hot">
+                    <div class="trend-indicator">🔥 HOT</div>
+                    <h3>#AIRevolution</h3>
+                    <p>145K posts • Trending in Technology</p>
+                    <div class="trend-chart">📈 +285% in last 24h</div>
+                    <button class="btn-use-trend">Use in Post</button>
+                </div>
+
+                <div class="trend-card rising">
+                    <div class="trend-indicator">📈 RISING</div>
+                    <h3>#SustainableFuture</h3>
+                    <p>89K posts • Trending in Business</p>
+                    <div class="trend-chart">📈 +156% in last 24h</div>
+                    <button class="btn-use-trend">Use in Post</button>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-indicator">💡 NEW</div>
+                    <h3>#ProductivityHacks</h3>
+                    <p>67K posts • Trending in Lifestyle</p>
+                    <div class="trend-chart">📈 +92% in last 24h</div>
+                    <button class="btn-use-trend">Use in Post</button>
+                </div>
+
+                <div class="trend-card">
+                    <div class="trend-indicator">⭐ POPULAR</div>
+                    <h3>#DigitalTransformation</h3>
+                    <p>234K posts • Trending in Technology</p>
+                    <div class="trend-chart">📈 +78% in last 24h</div>
+                    <button class="btn-use-trend">Use in Post</button>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h3>Recommended Hashtags for You</h3>
+                <div class="recommended-hashtags">
+                    <div class="hashtag-recommendation">
+                        <span class="hashtag-tag">#TechInnovation</span>
+                        <span class="hashtag-reach">125K reach</span>
+                    </div>
+                    <div class="hashtag-recommendation">
+                        <span class="hashtag-tag">#StartupLife</span>
+                        <span class="hashtag-reach">98K reach</span>
+                    </div>
+                    <div class="hashtag-recommendation">
+                        <span class="hashtag-tag">#GrowthMindset</span>
+                        <span class="hashtag-reach">156K reach</span>
+                    </div>
+                    <div class="hashtag-recommendation">
+                        <span class="hashtag-tag">#DigitalMarketing</span>
+                        <span class="hashtag-reach">212K reach</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
